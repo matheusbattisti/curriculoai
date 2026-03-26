@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useResumeStore } from '@/stores/useResumeStore'
 import { useAuthStore } from '@/stores/useAuthStore'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
@@ -34,10 +33,8 @@ type PendingAction = 'export' | 'ats' | null
 export default function EditorPage() {
   const template = useResumeStore((s) => s.resume.template)
   const setTemplate = useResumeStore((s) => s.setTemplate)
-  const resume = useResumeStore((s) => s.resume)
   const fillSampleData = useResumeStore((s) => s.fillSampleData)
   const { user } = useAuthStore()
-  const navigate = useNavigate()
 
   const [mobileView, setMobileView] = useState<'editor' | 'preview'>('editor')
   const [showAuth, setShowAuth] = useState(false)
